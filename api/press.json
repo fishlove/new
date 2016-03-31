@@ -3,16 +3,25 @@
 {% assign press = (site.press | where: 'published', 1 | sort: 'order' | group_by: 'title') %}
 { 
     {% for p in press %}
-    "{{ p.name }}": {
-        "title": "{{ p.items[0].title | xml_escape }}",
+    {% if p.items[0].image %}
+    {% capture image %}{% assign img = p.items[0].image | remove_first: '_media/' | img: "magick:resize:300" | split: '"' %}{{ img[1] }}{% endcapture %}
+    {% endif %}
+    "{{ p.name | xml_escape }}": {
         "order": "{{ p.items[0].order }}",
         "country": "{{ p.items[0].country }}",
-        "image": "{{ p.items[0].image | prepend: (site.cdn | replace: '0x0', '300x0') | xml_escape }}",
+        "image": "{{ image | xml_escape }}",
         "items":  [
             {% for item in p.items %}
             { 
-              "date": "{{ item.date }}", 
-              "url": "{{ item.link | xml_escape }}"
+              "date": "{{ item.date | date: '%Y-%m-%d' }}", 
+              
+              {% assign local = item.link | slice: 0, 6 %}
+              {% if local == '_media' %}
+                {% assign link = item.link | remove_first: '_media/' | asset_path | prepend: site.url %}
+              {% else %}
+                {% assign link = item.link  %}
+              {% endif %}
+              "url": "{{ link | xml_escape }}"
             }
             {% if forloop.last != true %},{% endif %}
             {% endfor %}

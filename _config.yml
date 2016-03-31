@@ -62,7 +62,7 @@ collections:
         output: false
     press:
         output: false
-cdn: //cdn.abemedia.co.uk/0x0/fishlove/
+mediaurl: _media
 advanced:
     xs_w: 263
     xs_h: 0
@@ -79,7 +79,7 @@ gems:
     - jekyll-assets
     - jekyll-sitemap
 assets:
-    cache: true
+    digest: true
     js_compressor: uglifier
     css_compressor: yui
     sources:
@@ -87,6 +87,7 @@ assets:
         - _assets/less
         - _assets/images
         - _assets/js
+        - _media
 baseurl: /
 comments:
     provider: '1'

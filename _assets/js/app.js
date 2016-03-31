@@ -23,3 +23,4 @@
 
 //= require_tree ./plugins
 //= require_directory ./widgets
+//= require_tree ./apps

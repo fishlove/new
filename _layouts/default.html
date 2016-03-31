@@ -18,7 +18,7 @@
     <![endif]-->
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="og:description" content="{{ description }}" />
-    <meta property="og:image" content="{{ site.url }}/{{ page.image }}" />
+    {% if page.image %}<meta property="og:image" content="{{ page.image | remove_first: '_media/' | asset_path | prepend: site.url }}" />{% endif %}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="{{ site.title }}"/>
     <meta property="og:locale" content="{{ site.locale }}"/>
@@ -133,7 +133,7 @@
           <h4>Produced by </h4>
           <p>
             <a href="http://moshimo.co.uk/">
-              <img src="{{ 'moshimo_logo.png' | asset_path }}" class="img-responsive" alt="{{site.title}}">
+              {% image moshimo_logo.png magick:resize:220 alt:"Moshimo" class:"img-responsive" %}
             </a>
           </p>
           <p>Supported by <br><b>Direct Seafoods Colchester</b></p>

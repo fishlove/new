@@ -8,14 +8,16 @@
     <div class="carousel-inner fh">
       {% capture i %}0{% endcapture %}
       {% for item in include.category %}
-      <div class="item img-cover img-fixed fh {% if {{i}} == '0' %}active{% endif %}" style="background-image:url({{ site.cdn | replace: '0x0', '1920x1080' }}{{ item.image }})">
+      {% capture image %}{% assign img = item.image | remove_first: '_media/' | img: "magick:crop:1920x1080+0+0" | split: '"' %}{{ img[1] }}{% endcapture %}
+      <div class="item img-cover img-fixed fh {% if {{i}} == '0' %}active{% endif %}" style="background-image:url({{ image }})">
         {% if item.sponsors %}
         <div class="carousel-header text-right h4 hidden-xs" style="margin-top: 13px">
           <div class="container">
             <p>In association with</p>
             <p>
               {% for item in item.sponsors %}
-              <a href="{{ item.url }}" target="_blank" title="{{ item.name }}"><img src="{{ item.logo | prepend: site.cdn | replace: '0x0', '200x0' }}" alt="{{ item.name }}"></a> 
+              {% capture logo %}{% assign img = item.logo | remove_first: '_media/' | img: "magick:resize:200x50^" | split: '"' %}{{ img[1] }}{% endcapture %}
+              <a href="{{ item.url }}" target="_blank" title="{{ item.name }}"><img src="{{ logo }}" alt="{{ item.name }}"></a> 
               {% endfor %}
             </p>
           </div>

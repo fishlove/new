@@ -1,4 +1,7 @@
-  <div class="banner img-parallax" {% if page.image %}style="background-image:url({{ site.cdn | replace: '0x0', '1280x720' }}{{ page.image }});"{% endif %}>
+{% if page.image %}
+{% capture image %}{% assign img = page.image | remove_first: '_media/' | img: "magick:crop:1920x720+0+0" | split: '"' %}{{ img[1] }}{% endcapture %}
+{% endif %}
+<div class="banner img-parallax" {% if page.image %}style="background-image:url({{ image }});"{% endif %}>
     <div class="banner-text">
       <div class="container">
         <h1>{{ page.title }}</h1>

@@ -5,6 +5,9 @@ $(document).on('click', function (e) {
     }
 });
 
+// select2 dropdowns
+$("select").select2();
+
 // bigtext
 $(".section h1, .bigtext").each(function() {
     $el = $(this);

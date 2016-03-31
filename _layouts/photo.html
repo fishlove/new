@@ -6,7 +6,7 @@ layout: default
   <div class="container-fluid fh-sm">
     <div class="row fh-sm">
       <div class="col-sm-8 fh-sm">
-        <img class="photo" src="{{ site.cdn | replace: '0x0', '0x1080' }}{{ page.image }}">
+        {% image "{{ page.image | remove_first: '_media/' }}" magick:resize:x1080 class:'photo' %}
       </div>
       <div class="col-sm-4 text-center simpleCart_shelfItem">
         <div class="panel panel-default">
@@ -69,7 +69,7 @@ layout: default
                 {% endfor %}
                 <div class="item_params hidden"></div>
               </div>
-              <img src="{{ site.cdn | replace: '0x0', '90x0' }}{{ page.image }}" class="item_thumb hide" />
+              {% image "{{ page.image | remove_first: '_media/' }}" magick:resize:90 class:'item_thumb hidden' %}
               <input type="text" class="item_url hidden" value="{{site.url}}{{page.url}}">
               <div class="col-sm-12">
                 <button type="button" class="item_add btn btn-block btn-lg btn-primary"><span class="fa fa-shopping-cart"></span> Add to cart</button>

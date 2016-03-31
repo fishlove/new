@@ -1,11 +1,12 @@
 ---
 layout: default
 ---
-{% assign slides = (site.galleries | where: 'published', 1 | sort: 'year') %}
+{% assign slides = (site.galleries | where: 'published', 1 | sort: 'order') %}
 <div class="fh-sm" id="content">
   <div class="donslide fh-sm">
-    {% for item in slides reversed %}
-    <div class="item fh-sm" style="background-image: url({{ site.cdn | replace: '0x0', '1600x1080' }}{{ item.image }})">
+    {% for item in slides %}
+    {% capture image %}{% assign img = item.image | remove_first: '_media/' | img: "magick:resize:1080x1080^ magick:crop:1080x1080+0+0" | split: '"' %}{{ img[1] }}{% endcapture %}
+    <div class="item fh-sm" style="background-image: url({{ image }})">
       <div class="donslide-caption">
         <h3 class="donslide-header">
           {{ item.title }} <small>{{ item.year }}</small>
@@ -24,17 +25,14 @@ layout: default
   <div class="container">
     <h1 class="section-header">Fishlove {{ page.title }}</h1>
     <div class="row">
-      {% for item in slides reversed %}
+      {% for item in slides %}
       {% assign items = (site.photos | where: 'published', 1 | where: 'gallery', item.slug) %}
       <div class="col-sm-1" style="min-width: {{ 100 | divided_by: (slides.size) }}%;">
         <h3>{{ item.title }}</h3>
         <p><a class="btn btn-sm btn-primary" data-toggle="tooltip" href="{{ site.url }}{{ item.url }}" title="View all {{ item.title }} portraits">View all</a></p>
         <ul class="list-unstyled">
         {% for item in items %}
-          {% assign img_size = (item.image | img_size) %}
-          {% assign img_height = (img_size[1] | times: 200 | divided_by: img_size[0]) %}
-          {% assign img_size = '200x' | append: img_height %}
-          <li><a href="{{ site.url }}{{ item.url }}" data-toggle="popover" data-content='<img width="200" height="{{ img_height }}" src="{{ item.image | prepend: (site.cdn | replace: '0x0', img_size) }}" />'>{{ item.title }}</a>
+          <li><a href="{{ site.url }}{{ item.url }}" data-toggle="popover" data-content='{{ item.image | remove_first: '_media/' | img: "magick:resize:200x75^" }}'>{{ item.title }}</a>
         {% endfor %}
         </ul>
       </div>

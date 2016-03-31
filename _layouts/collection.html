@@ -14,7 +14,7 @@ layout: default
       <p>In association with</p>
       <p>
         {% for item in page.sponsors %}
-        <a href="{{ item.url }}" target="_blank" title="{{ item.name }}"><img src="{{ item.logo | prepend: site.cdn | replace: '0x0', '300x0' }}" alt="{{ item.name }}"></a>
+        <a href="{{ item.url }}" target="_blank" title="{{ item.name }}">{{ item.logo | remove_first: '_media/' | img: "magick:resize:300" }}</a>
         {% endfor %}
       </p>
     </div>
@@ -23,10 +23,10 @@ layout: default
   <div class="container-fluid">
     <ul class="gallery collection">
       {% for item in collection %}
-      {% assign img_size = (item.image | img_size) %}
-      {% assign img = (item.image | img_resize: 100,200) %}
-      <li class="item {% if img_size[0] >= img_size[1] %}w2{% endif %}">
-      <a href="{{ site.url }}{{ item.url }}" style="background-image:url({{ site.cdn | replace: '0x0', '0x500' }}{{ item.image }})">
+      {% capture image %}{% assign img = item.image | remove_first: '_media/' | img: "magick:resize:x500" | split: '"' %}{{ img[1] }}{% endcapture %}
+      {% assign img = (item.image | remove_first: '_media/') %}
+      <li class="item {% if assets[img].width >= assets[img].height %}w2{% endif %}">
+      <a href="{{ site.url }}{{ item.url }}" style="background-image:url({{ image }})">
         <h4 class="item-title">
           {% assign fish = (site.fish | where: 'slug', item.fish | first) %}
           <span>{{ item.title }}<br><small>{{ fish.title }}</small></span>

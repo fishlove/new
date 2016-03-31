@@ -1,0 +1,8 @@
+---
+layout: nil
+---
+User-agent: *
+{% if site.url == 'http://new.fishlove.co.uk' %}Disallow: /
+{% else %}Disallow: /api
+Sitemap: {{ site.url }}{{ site.baseurl }}sitemap.xml
+{% endif %}

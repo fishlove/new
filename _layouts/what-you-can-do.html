@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
-<div class="section section-page bg-dark bg-darken img-cover img-fixed" id="content" {% if page.image %}style="background-image:url({{ site.cdn | replace: '0x0', '1280x1024' }}{{ page.image }});"{% endif %}>
+{% if page.image %}
+{% capture image %}{% assign img = page.image | remove_first: '_media/' | img: "magick:resize:1920x1080^ magick:crop:1920x1080+0+0" | split: '"' %}{{ img[1] }}{% endcapture %}
+{% endif %}
+<div class="section section-page bg-dark bg-darken img-cover img-fixed" id="content" {% if page.image %}style="background-image:url({{ image }});"{% endif %}>
   <div class="container">
     <h2 class="section-header bigtext">If you love fish...<div>Go sustainable</div></h2>
     <div class="section-content">
@@ -52,9 +55,10 @@ layout: default
     <ul class="gallery gallery-sm">
       {% for get_informed in page.get_informed %}
       {% assign item = get_informed[1] %}
+      {% capture logo %}{% assign img = item.logo | remove_first: '_media/' | img: "magick:resize:300" | split: '"' %}{{ img[1] }}{% endcapture %}
       <li class="item">
         <a target="_blank" href="{{ item.url }}" class="panel-body">
-          <div class="rel img-contain embed-responsive embed-responsive-16by9" style="background-image:url({{ item.logo | prepend: (site.cdn | replace: '0x0', '300x0') }}); margin-bottom:10px">
+          <div class="rel img-contain embed-responsive embed-responsive-16by9" style="background-image:url({{ logo }}); margin-bottom:10px">
           </div>
           <h5 class="item-title" title="{{ item.name }}" data-toggle="tooltip">
             <span class="name" style="height: 100%; white-space: normal">{{ item.name }}</span>
