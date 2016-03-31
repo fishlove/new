@@ -1,0 +1,23 @@
+---
+---
+{% assign press = (site.press | where: 'published', 1 | sort: 'order' | group_by: 'title') %}
+{ 
+    {% for p in press %}
+    "{{ p.name }}": {
+        "title": "{{ p.items[0].title | xml_escape }}",
+        "order": "{{ p.items[0].order }}",
+        "country": "{{ p.items[0].country }}",
+        "image": "{{ p.items[0].image | prepend: (site.cdn | replace: '0x0', '300x0') | xml_escape }}",
+        "items":  [
+            {% for item in p.items %}
+            { 
+              "date": "{{ item.date }}", 
+              "url": "{{ item.link | xml_escape }}"
+            }
+            {% if forloop.last != true %},{% endif %}
+            {% endfor %}
+        ]
+    }
+    {% if forloop.last != true %},{% endif %}
+    {% endfor %}
+}

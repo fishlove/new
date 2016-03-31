@@ -1,0 +1,66 @@
+---
+layout: default
+---
+<div class="section section-page bg-dark bg-darken img-cover img-fixed" id="content" {% if page.image %}style="background-image:url({{ site.cdn | replace: '0x0', '1280x1024' }}{{ page.image }});"{% endif %}>
+  <div class="container">
+    <h2 class="section-header bigtext">If you love fish...<div>Go sustainable</div></h2>
+    <div class="section-content">
+      {% include template/content.html %}
+      {% for thing in page.things %}
+      {% assign item = thing[1] %}
+      {% assign length = item.text | size %}
+      <div class="panel panel-trans">
+        <div class="panel-heading">
+          <h4 class="panel-title">{{ item.name }}</h4>
+        </div>
+        <div class="panel-body">{{ item.text }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="section well text-center">
+  <div class="container">
+    <h2 class="section-header bigtext">If you love fish...<div>Support Fishlove</div></h2>
+    <div class="section-content row">
+      <div class="col-sm-4">
+        <div class="icon-feature"><span class="fa fa-image"></span></div>
+        <h3>Buy Posters</h3>
+        <p>All profits from the sale of our collections are used directly for funding the campaign!</p>
+        <a href="{{ site.url }}/collections.html" class="btn btn-primary">Visit Shop</a>
+      </div>
+      <div class="col-sm-4">
+        <div class="icon-feature"><span class="fa fa-gift"></span></div>
+        <h3>Donate</h3>
+        <p>Support the Fishlove campaign and get listed on our <a>Fishlove Supporters</a></p>
+        {% include modules/donate.html %}
+      </div>
+      <div class="col-sm-4">
+        <div class="icon-feature"><span class="fa fa-heart"></span></div>
+        <h3>Sponsor Us</h3>
+        <p>Make an enquiry to find out how Fishlove can benefit your business.</p>
+        <a href="{{ site.url }}/contact.html" class="btn btn-primary">Enquire now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section bg-dark text-center">
+  <div class="container">
+    <h2 class="section-header bigtext">If you love fish...<div>Become informed</div></h2>
+    <ul class="gallery gallery-sm">
+      {% for get_informed in page.get_informed %}
+      {% assign item = get_informed[1] %}
+      <li class="item">
+        <a target="_blank" href="{{ item.url }}" class="panel-body">
+          <div class="rel img-contain embed-responsive embed-responsive-16by9" style="background-image:url({{ item.logo | prepend: (site.cdn | replace: '0x0', '300x0') }}); margin-bottom:10px">
+          </div>
+          <h5 class="item-title" title="{{ item.name }}" data-toggle="tooltip">
+            <span class="name" style="height: 100%; white-space: normal">{{ item.name }}</span>
+          </h5>
+        </a>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

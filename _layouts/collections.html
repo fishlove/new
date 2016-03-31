@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{% assign slides = (site.galleries | where: 'published', 1 | sort: 'year') %}
+<div class="fh-sm" id="content">
+  <div class="donslide fh-sm">
+    {% for item in slides reversed %}
+    <div class="item fh-sm" style="background-image: url({{ site.cdn | replace: '0x0', '1600x1080' }}{{ item.image }})">
+      <div class="donslide-caption">
+        <h3 class="donslide-header">
+          {{ item.title }} <small>{{ item.year }}</small>
+        </h3>
+        <a class="donslide-btn" href="{{ site.url }}{{ item.url }}">
+          View images<br class="hidden-xs">
+          {% if item.sell_posters %}buy posters{% endif %}
+        </a>
+        <div class="donslide-text">{{ item.content }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="section bg-dark">
+  <div class="container">
+    <h1 class="section-header">Fishlove {{ page.title }}</h1>
+    <div class="row">
+      {% for item in slides reversed %}
+      {% assign items = (site.photos | where: 'published', 1 | where: 'gallery', item.slug) %}
+      <div class="col-sm-1" style="min-width: {{ 100 | divided_by: (slides.size) }}%;">
+        <h3>{{ item.title }}</h3>
+        <p><a class="btn btn-sm btn-primary" data-toggle="tooltip" href="{{ site.url }}{{ item.url }}" title="View all {{ item.title }} portraits">View all</a></p>
+        <ul class="list-unstyled">
+        {% for item in items %}
+          {% assign img_size = (item.image | img_size) %}
+          {% assign img_height = (img_size[1] | times: 200 | divided_by: img_size[0]) %}
+          {% assign img_size = '200x' | append: img_height %}
+          <li><a href="{{ site.url }}{{ item.url }}" data-toggle="popover" data-content='<img width="200" height="{{ img_height }}" src="{{ item.image | prepend: (site.cdn | replace: '0x0', img_size) }}" />'>{{ item.title }}</a>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

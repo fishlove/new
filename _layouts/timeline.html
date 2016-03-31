@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<div class="section section-page bg-dark" id="content">
+  <div class="container text-center"> 
+    <h1>{{ page.title }}</h1>
+    <div class="section-lead">
+      {{ content }}
+    </div>
+  </div>
+  <div class="container"> 
+    {% assign events = (site.events | where: 'published', 1 | sort: 'date') %}
+    <div class="timeline">
+    {% for item in events reversed %}
+      {% assign currentyear = (item.date | date: "%Y") %}
+      <div class="timeline-block" id="{{ item.slug }}">
+        {% if currentyear != year %}
+          {% assign year = currentyear %}
+        <div class="timeline-date">
+          <div class="timeline-year">{{ currentyear }}</div>
+        </div>
+        {% endif %}
+        <div class="timeline-date">
+          <div class="timeline-day">{{ item.date | date: '%d' }}</div>
+          <div class="timeline-month">{{ item.date | date: '%b' }}</div>
+        </div>
+        <div class="timeline-content">
+          <h3 class="timeline-heading">{{ item.title }}</h3>
+          {% if item.image %}<img class="img-responsive" src="{{ item.image | prepend: (site.cdn | replace: '0x0', '527x296') }}"/>{% endif %}
+          <div class="timeline-text">
+            {{ item.content }}
+            {% if item.press_releases %}
+            <hr>
+            <span class="text-uppercase">Press release:</span>
+            {% for press_releases in item.press_releases %}
+            {% if press_releases[1].name %}
+              {% assign release = press_releases[1] %}
+            {% else %}
+              {% assign release = press_releases %}
+            {% endif %}  
+            <a target="_blank" download href="{{ site.url }}/{{ release.file }}" class="btn btn-default">{{ release.name }}</a> 
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+    <div class="panel panel-default text-center">
+      <h3 class="timeline-heading">{{ page.future_header }}</h3>
+      <div class="timeline-text">{{ page.future_text }}</div>
+    </div>
+  </div>
+</div>

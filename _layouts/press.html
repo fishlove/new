@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<div class="section section-page bg-dark text-center" id="content">
+  <div class="container">
+    {% include template/content.html %}
+    <div class="filter-sort">
+      <form class="form-inline">
+        <label class="h4" for="filter">Filter </label>
+        <select name="filter" id="filter" class="form-control">
+          <option value="">All countries</option>
+          {% assign countries = (site.press | where: 'published', 1 | group_by: 'country') | sort: 'name' %}
+          {% for country in countries %}
+          {% assign cc = country.name | size %}
+          {% if cc == 2 %}
+          <option value="{{ country.name }}">{{ site.data.countries[country.name] }}</option>
+          {% endif %}{% endfor %}
+        </select>
+        &nbsp;
+        <label class="h4" for="sort">Sort </label>
+        <div class="btn-group" data-toggle="buttons" id="sort">
+          <label class="btn btn-default active">
+            <input value="order" type="radio" name="sort" id="sort_default" autocomplete="off" checked> Default
+          </label>
+          <label class="btn btn-default">
+            <input value="date" type="radio" name="sort" id="sort_date" autocomplete="off"> Date
+          </label>
+          <label class="btn btn-default">
+            <input value="name" type="radio" name="sort" id="sort_name" autocomplete="off"> Name
+          </label>
+        </div>
+        <div class="btn-group" data-toggle="buttons" id="order">
+          <label class="btn btn-default active">
+            <input value="asc" type="radio" name="order" id="order_asc" autocomplete="off" checked><span class="fa fa-sort-amount-asc"></span>
+            <span class="sr-only">Ascending</span>
+          </label>
+          <label class="btn btn-default">
+            <input value="desc" type="radio" name="order" id="order_desc" autocomplete="off"><span class="fa fa-sort-amount-desc"></span>
+            <span class="sr-only">Descending</span>
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container rel">
+    <ul class="gallery gallery-sm filter-container">
+      {% assign press = (site.press | where: 'published', 1 | sort: 'order' | group_by: 'title') %}
+      {% assign limit = 15 %}
+      {% for p in press limit: limit %}
+      {% assign item = (p.items | first) %}
+      <li class="filter-item item" data-id="{{ item.title }}" data-date="{{ item.date }}" data-country="{{ item.country }}" data-order="{{ item.order }}">
+        <a href="#" class="press_item panel-body">
+          <div class="rel img-contain embed-responsive embed-responsive-16by9" style="background-image:url({{ item.image | prepend: (site.cdn | replace: '0x0', '300x0') }}); margin-bottom:10px">
+            <div style="position: absolute; bottom:0; width:100%"></div>
+          </div>
+          <h5 class="item-title" title="{{ item.title }}" data-toggle="tooltip">
+            <span class="name">{{ item.title }}</span>
+            <small class="text-muted country">
+              <img width="24" height="24" src="{{ site.url }}/images/flags/{{ item.country | downcase }}.png" alt="{{ site.data.countries[item.country] }}" />
+              <span>{{ site.data.countries[item.country] }}</span>
+            </small>
+          </h5>
+        </a>
+      {% endfor %}
+    </ul>
+    <button id="loadmore_press" class="btn btn-primary btn-lg">Load more...</button>
+  </div>
+</div>  

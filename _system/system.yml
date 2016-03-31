@@ -1,0 +1,22 @@
+pages:
+    title: Pages
+    icon: sitemap
+photos:
+    title: Portraits
+    icon: camera
+    items:
+        photos:
+            title: Images
+            icon: calendar
+        fish:
+            title: Fish
+            icon: anchor
+        galleries:
+            title: Collections
+            icon: user
+events:
+    title: Timeline
+    icon: calendar
+press:
+    title: Press
+    icon: newspaper-o

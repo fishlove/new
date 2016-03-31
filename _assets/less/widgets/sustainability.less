@@ -1,0 +1,45 @@
+ul.sustainability {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    li {
+        .bg-dark;
+        .img-circle;
+        .text-center;
+        display: block;
+        float: left;
+        font-size: ceil(@font-size-base * 0.75);
+        border-radius: 50%;
+        width: ~"@{line-height-base}em";
+        margin: ceil(@font-size-base * @line-height-base * 0.125) 3px;
+        
+        &.active {
+        font-size: @font-size-base;
+        margin: 0 3px;
+            &.level-1 {
+                background-color: green;
+            }
+            &.level-2 {
+                background-color: lightgreen;
+                color: @text-color;
+            }
+            &.level-3 {
+                background-color: yellow;
+                color: @text-color;
+            }
+            &.level-4 {
+                background-color: orange;
+            }
+            &.level-5 {
+                background-color: red;
+            }
+        }
+    }
+    &.sustainability-lg li {
+        font-size: 8px;
+        &.active {
+            font-size: 8px;
+        }
+    }
+}

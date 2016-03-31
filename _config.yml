@@ -1,0 +1,100 @@
+title: Fishlove
+description: 'Fishlove is a series of striking images which is now at the heart of a global movement to protect our seas from destructive fishing practices.'
+url: 'https://fishlove.co.uk'
+permalink: none
+locale: en_GB
+timezone: Europe/London
+analytics:
+    provider: google_analytics
+    tracking_id: UA-59471013-2
+sharing:
+    provider:
+        - facebook
+        - twitter
+        - google
+        - linkedin
+        - pinterest
+        - stumbleupon
+        - delicious
+        - reddit
+        - tumblr
+        - buffer
+        - vk
+    limit: 'false'
+    style: icons
+defaults:
+    -
+        scope:
+            path: ''
+            type: pages
+        values:
+            layout: page
+    -
+        scope:
+            path: ''
+            type: galleries
+        values:
+            layout: collection
+            app: collections
+    -
+        scope:
+            path: ''
+            type: photos
+        values:
+            layout: photo
+            app: collections
+    -
+        scope:
+            path: 'api'
+            type: pages
+        values:
+            layout: json
+collections:
+    photos:
+        output: true
+        permalink: '/collections/:path.html'
+    galleries:
+        output: true
+        permalink: '/collections/:path.html'
+    fish:
+        output: false
+    events:
+        output: false
+    press:
+        output: false
+cdn: //cdn.abemedia.co.uk/0x0/fishlove/
+advanced:
+    xs_w: 263
+    xs_h: 0
+    sm_w: 432
+    sm_h: 0
+    md_w: 800
+    md_h: 0
+    lg_w: 1280
+    lg_h: 0
+    xl_w: 1920
+    xl_h: 0
+gems:
+    - autoprefixer-rails
+    - jekyll-assets
+    - jekyll-sitemap
+assets:
+    cache: true
+    js_compressor: uglifier
+    css_compressor: yui
+    sources:
+        - _assets/bower
+        - _assets/less
+        - _assets/images
+        - _assets/js
+baseurl: /
+comments:
+    provider: '1'
+profiles:
+    provider:
+        - facebook
+        - twitter
+        - youtube
+    facebook: 'https://www.facebook.com/fishlovecampaign'
+    twitter: 'https://www.twitter.com/fishlove2015'
+    youtube: 'https://www.youtube.com/channel/UCGuiPbtRfEYB276cNIqdHUw'

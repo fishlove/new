@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="general">
+            <field name="future_header" type="text" label="Future Header" filter="string" class="form-control" />
+            <field name="future_text" type="textarea" label="Future Text" filter="string" class="form-control" />
+        </fieldset>
+    </fields>
+</form>

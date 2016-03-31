@@ -1,0 +1,86 @@
+---
+layout: default
+---
+{% assign fish = (site.fish | where: 'slug', page.fish | first) %}
+<div class="section section-page bg-dark fh-sm" id="content">
+  <div class="container-fluid fh-sm">
+    <div class="row fh-sm">
+      <div class="col-sm-8 fh-sm">
+        <img class="photo" src="{{ site.cdn | replace: '0x0', '0x1080' }}{{ page.image }}">
+      </div>
+      <div class="col-sm-4 text-center simpleCart_shelfItem">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="item_name">
+              <h1>{{ page.title }}</h1>
+              <h3>{{ fish.title }}</h3>
+            </div>
+            <h4>Sustainability level</h4>
+            <ul class="sustainability">
+            {% for i in (1..5) %}
+              {% capture count %}{{ i }}{% endcapture %}
+              <li class="level-{{ i }} {% if fish.sustainability == count %}active{% endif %}">{{ i }}</li>
+            {% endfor %}
+            </ul><br>
+            <a target="_blank" class="small text-muted" href="http://www.fishonline.org/information/Fish+ratings">More info about ratings.</a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Order Posters</h3>
+          </div>
+          <div class="panel-body">
+            {% assign collection = (site.galleries | where: 'slug', page.gallery | first) %}
+            {% if collection.sell_posters %}
+            <form class="row">
+              <div class="form-group col-sm-5">
+                <div class="item_price">&pound;<span>19.95</span></div>
+                <span class="poster-size">297mm x 420mm</span>
+              </div>
+              <div class="col-sm-7">
+                <div class="form-group">
+                  <div class="input-group">
+                   <label for="size" class="input-group-addon"> Size </label>
+                    <select name="size" class="item_size form-control" onchange="">
+                      <option value="A3 (297mm x 420mm)" data-price="19.95" data-size="297mm x 420mm">A3</option>
+                      <option value="A2 (420mm x 594mm)" data-price="39.95" data-size="420mm x 594mm">A2</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <label for="quantity" class="input-group-addon"> Qty </label>
+                    <select name="quantity" class="item_quantity form-control">
+                      {% for i in (1..10) %}
+                      <option value="{{i}}">{{i}}</option>  
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                {% for param in page.params %}
+                <div class="checkbox">
+                  <label>
+                    <input class="item_param" type="checkbox" data-modifier="{{ param.modifier }}" data-price="{{ param.price }}" value="{{ param.param }}"> 
+                    <span>{{ param.param }}</span> ({{ param.modifier }} &pound;{{ param.price }})
+                  </label>
+                </div>
+                {% endfor %}
+                <div class="item_params hidden"></div>
+              </div>
+              <img src="{{ site.cdn | replace: '0x0', '90x0' }}{{ page.image }}" class="item_thumb hide" />
+              <input type="text" class="item_url hidden" value="{{site.url}}{{page.url}}">
+              <div class="col-sm-12">
+                <button type="button" class="item_add btn btn-block btn-lg btn-primary"><span class="fa fa-shopping-cart"></span> Add to cart</button>
+              </div>
+            </form>
+            {% else %}
+              Sadly we aren't able to sell posters of this collection.
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

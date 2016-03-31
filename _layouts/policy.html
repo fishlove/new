@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% include modules/banner.html %}
+<div class="section" id="content">
+  <div class="container">
+    <article class="section-content">{% include template/content.html %}</article>
+  </div>
+</div>
+<div class="section bg-dark">
+  <div class="container">
+    <h2 class="section-header">Fish we used</h2>
+    <div class="section-lead">
+      <p>The fish we used in the portraits along with the sustainability ratings provided by the marine conservation society.</p>
+    </div>
+    {% assign fish = (site.fish | where: 'published', 1 | sort: 'order') %}
+    <div class="row">
+    {% for item in fish %}
+      <div class="col-sm-6 col-lg-4">
+        <ul class="sustainability pull-right">
+          {% for i in (1..5) %}
+          {% capture count %}{{ i }}{% endcapture %}
+          <li class="level-{{ i }} {% if item.sustainability == count %}active{% endif %}">{{ i }}</li>
+          {% endfor %}
+        </ul>
+        {{ item.title }} <br><br>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>

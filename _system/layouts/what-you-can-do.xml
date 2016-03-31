@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="general">
+            <field name="things" type="multiform" label="Go Sustainable" filter="array">
+                <field name="name" type="text" label="Title" filter="string" class="form-control" />
+                <field name="text" type="textarea" label="Text" filter="string" class="form-control" />
+            </field>
+            <field name="get_informed" type="multiform" label="Get Informed" filter="array">
+                <field name="name" type="text" label="Title" filter="string" class="form-control" />
+                <field name="url" type="text" label="URL" filter="string" class="form-control" />
+                <field name="logo" type="media" label="Logo" filter="string" class="form-control" directory="images/partners" />
+            </field>
+        </fieldset>
+    </fields>
+</form>

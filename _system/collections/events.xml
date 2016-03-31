@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="options">
+            <field name="date" date-format="YYYY-MM-DD" type="datetime" label="Date" filter="string" class="form-control" admintable="true"/>
+            <field name="image" type="media" label="Image" filter="string" class="form-control" />
+        </fieldset>
+        
+        <fieldset name="general">
+            <field name="press_releases" type="multiform" label="Press Releases" filter="array">
+                <field name="name" type="text" label="Name" filter="string" class="form-control" />
+                <field name="file" type="media" label="File" filter="string" class="form-control" directory="images/press-releases" />
+            </field>
+        </fieldset>
+    </fields>
+</form>

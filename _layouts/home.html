@@ -1,0 +1,148 @@
+---
+layout: default
+---
+{% assign slides = (site.galleries | where: 'published', 1 | sort: 'order') %}
+{% include modules/slideshow.html category=slides %}
+<div class="section well text-justify-center" id="content">
+  <div class="container">
+    <article class="section-content">{% include template/content.html %}</article>
+    <hr>
+    <div class="section-content row text-center">
+      <div class="col-sm-3">
+        <span class="fa fa-flag fa-5x"></span>
+        <h4>Campaigns</h4>
+        <p>See the campaigns Fishlove has supported to promote sustainable fishing.</p>
+        <a href="{{ site.url }}/campaigns.html" class="btn btn-primary">View campaigns</a>
+      </div>
+      <div class="col-sm-3">
+        <span class="fa fa-newspaper-o fa-5x"></span>
+        <h4>In the press</h4>
+        <p>Fishlove has received a lot of media attention! View the complete list here.</p>
+        <a href="{{ site.url }}/press.html" class="btn btn-primary">View press</a>
+      </div>
+      <div class="col-sm-3">
+        <span class="fa fa-check-square-o fa-5x"></span>
+        <h4>Our fish policy</h4>
+        <p>We support and promote sustainable fishing. View our policy on the use of fish.</p>
+        <a href="{{ site.url }}/fish-policy.html" class="btn btn-primary">Read our fish policy</a>
+      </div>
+      <div class="col-sm-3">
+        <span class="fa fa-users fa-5x"></span>
+        <h4>What you can do</h4>
+        <p>Find out more about how you can help to preserve the oceans for generations to come.</p>
+        <a href="{{ site.url }}/what-you-can-do.html" class="btn btn-primary">Get involved</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+{% if page.testimonial_text %}
+<div class="section section-lg bg-red text-center">
+  <div class="container">
+    <p>&ldquo;{{ page.testimonial_text }}&rdquo;</p>
+    <small>
+      <b>{{ page.testimonial_person }}</b> 
+      <cite>{{ page.testimonial_role }}</cite>
+    </small>
+  </div>
+</div>
+{% endif %}
+
+<div class="section well text-center">
+  <div class="container">
+    <h3 class="section-header">{{ page.support_us_header }}</h3>
+    <div class="section-lead">{{ page.support_us_text }}</div>
+    <div class="section-content row">
+      <div class="col-sm-4">
+        <div class="icon-feature"><span class="fa fa-image"></span></div>
+        <h3>Buy Posters</h3>
+        <p>All profits from the sale of our collections are used directly for funding the campaign!</p>
+        <a href="{{ site.url }}/collections.html" class="btn btn-primary">Visit Shop</a>
+      </div>
+      <div class="col-sm-4">
+        <div class="icon-feature"><span class="fa fa-gift"></span></div>
+        <h3>Donate</h3>
+        <p>Support the Fishlove campaign with a donation.</p>
+        {% include modules/donate.html %}
+      </div>
+      <div class="col-sm-4">
+        <div class="icon-feature"><span class="fa fa-heart"></span></div>
+        <h3>Sponsor Us</h3>
+        <p>Make an enquiry to find out how Fishlove can benefit your business.</p>
+        <a href="{{ site.url }}/contact.html" class="btn btn-primary">Enquire now</a>
+      </div>
+    </div>
+    <div class="section-content">
+      <h3>Spread the word</h3>
+      <div class="don-share" data-style="custom">
+        {% for provider in site.sharing.provider %}
+        <div class="don-share-{{ provider }}">
+          <a href="{url}" target="_blank" title="{description}" class="btn btn-{{ provider }}"><i class="ico-{{ provider }} fa fa-fw fa-2x"></i></span><span class="don-count"></span></a>
+        </div>
+        {% endfor %}
+      </div>
+      <script type="text/javascript"> 
+        (function() {
+          var dr = document.createElement('script');
+          dr.type = 'text/javascript'; dr.async = true;
+          dr.src = '//share.donreach.com/buttons.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dr);
+        })();
+      </script>
+    </div>
+  </div>
+</div>
+<div class="section bg-dark">
+  <div class="container">
+    <h3 class="section-header text-center">Get Connected</h3>
+    <div class="section-content row equal">
+      <div class="col-sm-4">
+        <div class="panel panel-default" style="height:100%;">
+          <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-fw fa-facebook-official"></span> Like</h3></div>
+          <div class="panel-body">
+            <div style="overflow:hidden"><div style="margin:0 -15px -20px -5px" class="fb-like-box">
+                <iframe height="270" frameborder="0" allowtransparency="true" scrolling="no" title="Facebook Social Plugin" src="//www.facebook.com/v2.0/plugins/like_box.php?header=false&href={{ site.profiles['facebook'] }}&show_border=false&show_faces=true&stream=false&width=500&height=270" style="border: none; visibility: visible; width:100%;"></iframe>
+            </div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default" style="height:100%;">
+          <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-fw fa-twitter"></span> Follow</h3></div>
+          <div class="panel-body">
+            <a class="twitter-timeline" 
+              data-chrome="  noborders transparent"
+              data-tweet-limit="1"
+              href="https://twitter.com/fishlove2015" 
+              data-widget-id="570391054583873536">Tweets by @fishlove2015</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default" style="height:100%;">
+          <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-fw fa-envelope"></span> Subscribe</h3></div>
+          <div class="panel-body">
+            <p>Subscribe to our newsletter to stay up-to-date with everything Fishlove.</p>
+            <form role="form" action="https://send.abemedia.co.uk/zx" method="post" class="donforms">
+              <div class="form-group">
+                <label class="sr-only" for="email">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="email">Email address</label>
+                <input type="email" class="form-control" name="email" placeholder="Email address" required>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="phone">Phone Number (optional)</label>
+                <input type="phone" class="form-control" name="phone" placeholder="Phone number (optional)">
+              </div>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

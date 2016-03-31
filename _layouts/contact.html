@@ -1,0 +1,120 @@
+---
+layout: default
+---
+{% include modules/banner.html %}
+<div class="section grey rel" id="content">
+  <div class="container">
+    <ul class="nav nav-tabs header-tabs" role="tablist" id="myTab">
+      <li role="presentation" class="active"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">General Enquiries</a></li>
+      <li role="presentation"><a href="#press" aria-controls="press" role="tab" data-toggle="tab">Media &amp; Press</a></li>
+      <li role="presentation"><a href="#sponsors" aria-controls="sponsors" role="tab" data-toggle="tab">Sponsorship</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="contact">
+        <h2 class="section-header">Feedback &amp; Support</h2>
+        <p class="lead">Please feel free to contact us with your comments, suggestions and support. Simply complete the form below.</p>
+        <form role="form" action="https://send.abemedia.co.uk/R8" method="post" class="donforms well">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="subject">Subject *</label>
+              <input type="text" class="form-control" name="subject" placeholder="Enter a subject for your message" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="name">Name *</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter your first and last name" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="email">Email *</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="phone">Phone</label>
+              <input type="tel" class="form-control" name="phone" placeholder="Enter your phone number (optional)">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea name="message" rows="5" class="form-control" required></textarea>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="checkbox">
+                <label>
+                  <input name="newsletter" value="true" type="checkbox" checked> Subscribe to the Fishlove newsletter
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-6 text-right">
+              <button type="submit" class="btn btn-danger btn-lg">Send Enquiry</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="press">
+        <h2 class="section-header">Media &amp; Press Enquiries</h2>
+        <p class="lead">To make an enquiry for the use of images for electronic or published media please register using the form below.</p>
+        <form role="form" action="https://send.abemedia.co.uk/5B" method="post" class="donforms well">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="name">Name *</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter your first and last name" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="email">Company *</label>
+              <input type="text" class="form-control" name="company" placeholder="Enter your company or organisation" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="email">Email *</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="phone">Phone *</label>
+              <input type="tel" class="form-control" name="phone" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="checkbox">
+                <label>
+                  <input name="terms" value="true" type="checkbox" required> I have read and agree to the Terms & Conditions of use.
+                </label>
+              </div>
+            </div>
+            <div class="col-sm-6 text-right">
+              <button type="submit" class="btn btn-danger btn-lg">Send Enquiry</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="sponsors">
+        <h2 class="section-header">Sponsorship Enquiries</h2>
+        <p class="lead">Make an enquiry to find out how Fishlove can benefit your business.</p>
+        <form role="form" action="https://send.abemedia.co.uk/2m" method="post" class="donforms well">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label for="name">Name *</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter your first and last name" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="email">Company *</label>
+              <input type="text" class="form-control" name="company" placeholder="Enter your company or organisation" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="email">Email *</label>
+              <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="phone">Phone *</label>
+              <input type="tel" class="form-control" name="phone" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+          <div class="text-right">
+            <button type="submit" class="btn btn-danger btn-lg">Send Enquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+</div>

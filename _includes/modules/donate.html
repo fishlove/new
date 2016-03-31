@@ -1,0 +1,22 @@
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="form-inline">
+  <div class="form-group">
+    <label class="sr-only" for="donate_amount">Amount (in Pounds Sterling)</label>
+    <div class="input-group">
+      <select class="form-control" name="amount" id="donate_amount">
+        <option value="10.00">&pound;10</option>
+        <option value="20.00">&pound;20</option>
+        <option value="30.00">&pound;30</option>
+        <option value="">Other</option>
+      </select>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary">Donate</button>
+      </span>
+    </div>
+  </div>
+  <input type="hidden" name="cmd" value="_donations">
+  <input type="hidden" name="business" value="nicky@fishlove.co.uk">
+  <input type="hidden" name="lc" value="GB">
+  <input type="hidden" name="item_name" value="Fishlove">
+  <input type="hidden" name="currency_code" value="GBP">
+  <input type="hidden" name="no_note" value="0">
+</form>

@@ -1,0 +1,11 @@
+url: '/clients/fishlove/_site'
+assets:
+    baseurl: "/clients/fishlove/_site/assets"
+    cache: false
+    js_compressor: false
+    css_compressor: false
+    sources:
+        - _assets/bower
+        - _assets/less
+        - _assets/images
+        - _assets/js
