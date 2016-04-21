@@ -97,5 +97,10 @@ profiles:
         - twitter
         - youtube
     facebook: 'https://www.facebook.com/fishlovecampaign'
-    twitter: 'https://www.twitter.com/fishlove2015'
+    twitter: 'https://twitter.com/fishlove2016'
     youtube: 'https://www.youtube.com/channel/UCGuiPbtRfEYB276cNIqdHUw'
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - bower.json

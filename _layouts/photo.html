@@ -13,8 +13,9 @@ layout: default
           <div class="panel-body">
             <div class="item_name">
               <h1>{{ page.title }}</h1>
-              <h3>{{ fish.title }}</h3>
+              {% if fish %}<h3>{{ fish.title }}</h3>{% endif %}
             </div>
+            {% if fish %}
             <h4>Sustainability level</h4>
             <ul class="sustainability">
             {% for i in (1..5) %}
@@ -23,6 +24,7 @@ layout: default
             {% endfor %}
             </ul><br>
             <a target="_blank" class="small text-muted" href="http://www.fishonline.org/information/Fish+ratings">More info about ratings.</a>
+            {% endif %}
           </div>
         </div>
         <div class="panel panel-default">

@@ -1,0 +1,21 @@
+---
+layout: nil
+---
+
+File to test all outbound press links in htmlproofer.
+
+{% assign press = (site.press | where: 'published', 1 | sort: 'order' | group_by: 'title') %}
+{% for p in press %}
+  <h2>{{ p.name | xml_escape }}</h2>
+  {{ p.items[0].image | remove_first: '_media/' | img: "magick:resize:300" }}<br>
+  {% for item in p.items %}
+    {% assign local = item.link | slice: 0, 6 %}
+    {% if local == '_media' %}
+      {% assign link = item.link | remove_first: '_media/' | asset_path | prepend: site.url %}
+    {% else %}
+      {% assign link = item.link  %}
+    {% endif %}
+    <a href="{{ link | xml_escape }}">{{ item.date | date: '%Y-%m-%d' }}</a><br>
+  {% endfor %}
+  <hr>
+{% endfor %}

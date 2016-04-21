@@ -38,7 +38,7 @@ layout: default
             {% else %}
               {% assign release = press_releases %}
             {% endif %}  
-            <a target="_blank" download href="{{ site.url }}/{{ release.file | asset_url }}" class="btn btn-default">{{ release.name }}</a> 
+            <a target="_blank" download href="{{ release.file | remove_first: '_media/' | asset_path }}" class="btn btn-default">{{ release.name }}</a> 
             {% endfor %}
             {% endif %}
           </div>

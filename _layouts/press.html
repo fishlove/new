@@ -50,7 +50,7 @@ layout: default
       {% assign item = (p.items | first) %}
       {% if item.image %}{% capture image %}{% assign img = item.image | remove_first: '_media/' | img: "magick:resize:300" | split: '"' %}{{ img[1] }}{% endcapture %}{% endif %}
       <li class="filter-item item" data-id="{{ item.title }}" data-date="{{ item.date }}" data-country="{{ item.country }}" data-order="{{ item.order }}">
-        <a href="#" class="press_item panel-body">
+        <a href="javascript:void(0)" class="press_item panel-body">
           <div class="rel img-contain embed-responsive embed-responsive-16by9" style="background-image:url({{ image }}); margin-bottom:10px">
             <div style="position: absolute; bottom:0; width:100%"></div>
           </div>
