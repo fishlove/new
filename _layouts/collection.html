@@ -29,7 +29,7 @@ layout: default
       <a href="{{ site.url }}{{ item.url }}" style="background-image:url({{ image }})">
         <h4 class="item-title">
           {% assign fish = (site.fish | where: 'slug', item.fish | first) %}
-          <span>{{ item.title }}<br><small>{{ fish.title }}</small></span>
+          <span>{{ item.title | markdownify | strip_html }}<br><small>{{ fish.title }}</small></span>
         </h4>
       </a>
       {% endfor %}

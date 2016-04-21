@@ -15,7 +15,7 @@ File to test all outbound press links in htmlproofer.
     {% else %}
       {% assign link = item.link  %}
     {% endif %}
-    <a href="{{ link | xml_escape }}">{{ item.date | date: '%Y-%m-%d' }}</a><br>
+    {{ item.date | date: '%Y-%m-%d' }} - <a href="{{ link | xml_escape }}">{{ link | xml_escape }}</a><br>
   {% endfor %}
   <hr>
 {% endfor %}
