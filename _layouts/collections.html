@@ -32,7 +32,7 @@ layout: default
         <p><a class="btn btn-sm btn-primary" data-toggle="tooltip" href="{{ site.url }}{{ item.url }}" title="View all {{ item.title }} portraits">View all</a></p>
         <ul class="list-unstyled">
         {% for item in items %}
-          <li><a href="{{ site.url }}{{ item.url }}" data-toggle="popover" data-content='{{ item.image | remove_first: '_media/' | img: "magick:resize:200x75^" }}'>{{ item.title }}</a>
+          <li><a href="{{ site.url }}{{ item.url }}" data-toggle="popover" data-content='{{ item.image | remove_first: '_media/' | img: "magick:resize:200x75^" }}'>{{ item.title | markdownify | strip_html }}</a>
         {% endfor %}
         </ul>
       </div>

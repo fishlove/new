@@ -12,7 +12,7 @@ layout: default
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="item_name">
-              <h1>{{ page.title }}</h1>
+              <h1>{{ page.title | markdownify | strip_html }}</h1>
               {% if fish %}<h3>{{ fish.title }}</h3>{% endif %}
             </div>
             {% if fish %}

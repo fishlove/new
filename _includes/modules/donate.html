@@ -1,8 +1,9 @@
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="form-inline">
   <div class="form-group">
-    <label class="sr-only" for="donate_amount">Amount (in Pounds Sterling)</label>
+    
+    <label class="sr-only" for="donate_amount{{include.id}}">Amount (in Pounds Sterling)</label>
     <div class="input-group">
-      <select class="form-control" name="amount" id="donate_amount">
+      <select class="form-control" name="amount" id="donate_amount{{include.id}}">
         <option value="10.00">&pound;10</option>
         <option value="20.00">&pound;20</option>
         <option value="30.00">&pound;30</option>
