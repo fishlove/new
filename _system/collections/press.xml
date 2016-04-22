@@ -257,7 +257,7 @@
                 <option value="ZM">Zambia</option>
                 <option value="ZW">Zimbabwe</option>
             </field>
-            <field name="image" type="media" label="Image" filter="string" class="form-control" directory="images/press" />
+            <field name="image" type="media" label="Image" filter="string" class="form-control" directory="_media/press" />
         </fieldset>
     </fields>
 </form>

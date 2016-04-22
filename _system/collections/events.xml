@@ -9,7 +9,7 @@
         <fieldset name="general">
             <field name="press_releases" type="multiform" label="Press Releases" filter="array">
                 <field name="name" type="text" label="Name" filter="string" class="form-control" />
-                <field name="file" type="media" label="File" filter="string" class="form-control" directory="images/press-releases" />
+                <field name="file" type="media" label="File" filter="string" class="form-control" directory="_media/press-releases" />
             </field>
         </fieldset>
     </fields>

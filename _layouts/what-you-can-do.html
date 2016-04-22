@@ -10,13 +10,13 @@ layout: default
     <div class="section-content">
       {% include template/content.html %}
       {% for thing in page.things %}
-      {% assign item = thing[1] %}
+      {% if thing[1] %}{% assign item = thing[1] %}{% else %}{% assign item = thing %}{% endif %}
       {% assign length = item.text | size %}
       <div class="panel panel-trans">
         <div class="panel-heading">
-          <h4 class="panel-title">{{ item.name }}</h4>
+          <h4 class="panel-title">{{ item.name | markdownify | strip_html }}</h4>
         </div>
-        <div class="panel-body">{{ item.text }}</div>
+        <div class="panel-body">{{ item.text | markdownify | strip_html }}</div>
       </div>
       {% endfor %}
     </div>
@@ -54,14 +54,14 @@ layout: default
     <h2 class="section-header bigtext">If you love fish...<div>Become informed</div></h2>
     <ul class="gallery gallery-sm">
       {% for get_informed in page.get_informed %}
-      {% assign item = get_informed[1] %}
+      {% if get_informed[1] %}{% assign item = get_informed[1] %}{% else %}{% assign item = get_informed %}{% endif %}
       {% capture logo %}{% assign img = item.logo | remove_first: '_media/' | img: "magick:resize:300" | split: '"' %}{{ img[1] }}{% endcapture %}
       <li class="item">
         <a target="_blank" href="{{ item.url }}" class="panel-body">
           <div class="rel img-contain embed-responsive embed-responsive-16by9" style="background-image:url({{ logo }}); margin-bottom:10px">
           </div>
           <h5 class="item-title" title="{{ item.name }}" data-toggle="tooltip">
-            <span class="name" style="height: 100%; white-space: normal">{{ item.name }}</span>
+            <span class="name" style="height: 100%; white-space: normal">{{ item.name | markdownify | strip_html }}</span>
           </h5>
         </a>
       {% endfor %}
