@@ -66,14 +66,16 @@
       </div>
       <div class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
-        {% assign pages = (site.pages | where: 'published', 1 | where: 'parent', nil | sort: 'order') %}
+        {% assign pages = site.pages | where: 'published', 1 | sort: 'order' %}
         {% for item in pages %}
+          {% unless item.parent %}
           {% assign submenu = (site.pages | where: 'published', 1 | where: 'parent', item.slug | sort: 'order') %}
           <li {% if item.slug == page.slug or page.collection == item.slug or page.app == item.slug or page.parent == item.slug %}class="active"{% endif %}>
             <a href="{{ item.url | remove: 'index.html' | prepend: site.url }}">
               {% if item.slug == 'index' %}Home{% else %}{{ item.title }}{% endif %}
             </a>
-            {% if (submenu | size) > 0 %}
+            {% assign submenu_size = submenu | size %}
+            {% if submenu_size > 0 %}
             <ul class="nav">
               {% for item in submenu %}
               <li {% if item.slug == page.slug or page.collection == item.slug or page.app == item.slug or page.parent == item.slug %}class="active"{% endif %}>
@@ -85,6 +87,7 @@
             </ul>
             {% endif %}
           </li>
+        {% endunless %}
         {% endfor %}
         </ul>
       </div>
