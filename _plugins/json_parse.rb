@@ -1,6 +1,7 @@
+require 'json'
+
 module Jekyll
     module JsonFilter
-        require 'json'
         def json_parse(input) 
             JSON.parse(input)
         end

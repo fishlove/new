@@ -13,9 +13,16 @@ File to test all outbound press links in htmlproofer.
     {% if local == '_media' %}
       {% assign link = item.link | remove_first: '_media/' | asset_path | prepend: site.url %}
     {% else %}
-      {% assign link = item.link  %}
+      {% assign is_live = item.link | check_link %}
+      {% if is_live %}
+        {% assign link = item.link  %}
+      {% else %}
+        {% assign link = item.link | wayback %}
+      {% endif %}
     {% endif %}
+    {% if link %}
     {{ item.date | date: '%Y-%m-%d' }} - <a href="{{ link | xml_escape }}">{{ link | xml_escape }}</a><br>
+    {% endif %}
   {% endfor %}
   <hr>
 {% endfor %}

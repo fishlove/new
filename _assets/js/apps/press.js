@@ -175,7 +175,14 @@ if($('a.press_item').length) {
                 for (var i = 0; i < item.length; i++) {
                     item[i].date = new Date(item[i].date);
                     item[i].date = item[i].date.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-                    table += '<tr><td class="lead">'+item[i].date+'</td><td><a class="btn btn-primary" href="'+item[i].url+'" target="_blank">View</a></td></tr>';
+                    table += '<tr><td class="lead">'+item[i].date+'</td><td class="text-right">'+
+                      (item[i].url ?
+                        '<a class="btn btn-primary" href="'+item[i].url+'" target="_blank">'+
+                          'View '+(item[i].archive?' (archive)':'')+
+                        '</a>' :
+                        '<span class="text-muted">Not available online</span>'
+                      )+
+                      '</td></tr>';
                 }
                 table = "<h3>Fishlove features on "+title+"</h3><table class='table table-striped text-left'><thead><tr><th>Date</th><th></th></tr></thead><tbody>"+table+"</tbody></table>";
                 $(".gallery").css('height', '');
@@ -193,7 +200,6 @@ if($('a.press_item').length) {
                     }
                 });
             }
-            console
             return false;
         });
     });

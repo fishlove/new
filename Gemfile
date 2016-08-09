@@ -12,5 +12,6 @@ group :jekyll_plugins do
   gem 'autoprefixer-rails'
 end
 
-# travis fix
+# travis
 gem 'rack', '< 2'
+#gem 'travis_dedup'
