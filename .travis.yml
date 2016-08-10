@@ -20,13 +20,14 @@ script:
 - git config user.email "travis@fishlove.co.uk"
 - git add .
 - git commit -m "Deployed to Github Pages"
-- git push --force --quiet "https://${GH_TOKEN}@github.com/${REPO}" master > /dev/null 2>&1
+- git push --force --quiet "https://$GH_TOKEN@github.com/$REPO" master > /dev/null 2>&1
 
 git:
   depth: 10
   
 notifications:
   email: webmaster@fishlove.co.uk
+  slack: $SLACK
   
 env:
   global:
