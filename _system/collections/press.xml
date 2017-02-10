@@ -258,7 +258,7 @@
                 <option value="ZW">Zimbabwe</option>
             </field>
             <field name="image" type="media" label="Image" filter="string" class="form-control" directory="_media/press" />
-            <field name="offline" type="checkbox" label="Article offline" description="Display the article via webarchive" value="1" />
+            <field name="offline" type="checkbox" label="No longer online" description="Display the article via webarchive" value="1" filter="int" />
         </fieldset>
     </fields>
 </form>
