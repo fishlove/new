@@ -95,7 +95,6 @@ profiles:
     provider:
         - facebook
         - twitter
-        - linkedin
         - youtube
     facebook: 'https://www.facebook.com/fishlovecampaign'
     twitter: 'https://twitter.com/fishlove2016'
