@@ -19,8 +19,8 @@
               {% if local == '_media' %},
                   "url": "{{ item.link | remove_first: '_media/' | asset_path | prepend: site.url | xml_escape }}"
               {% else %}
-                {% if !item.offline %}{% assign is_live = item.link | check_link %}{% endif %}
-                {% if !item.offline and is_live %},
+                {% if item.offline %}{% assign is_live = false %}{% else %}{% assign is_live = item.link | check_link %}{% endif %}
+                {% if is_live %},
                   "url": "{{ item.link | xml_escape }}"
                 {% else %}
                   {% assign link = item.link | wayback %}
