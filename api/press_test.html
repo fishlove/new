@@ -13,9 +13,8 @@ File to test all outbound press links in htmlproofer.
     {% if local == '_media' %}
       {% assign link = item.link | remove_first: '_media/' | asset_path | prepend: site.url %}
     {% else %}
-      {% if !item.offline %}{% assign is_live = item.link | check_link %}{% endif %}
-      {% assign is_live = item.link | check_link %}
-      {% if !item.offline and is_live %}
+      {% if item.offline %}{% assign is_live = false %}{% else %}{% assign is_live = item.link | check_link %}{% endif %}
+      {% if is_live %}
         {% assign link = item.link  %}
       {% else %}
         {% assign link = item.link | wayback %}
