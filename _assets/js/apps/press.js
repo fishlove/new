@@ -168,7 +168,7 @@ if($('a.press_item').length) {
             unselect_press();
             var $el = $(this).parent();
             if(!$el.hasClass('active')) {
-                var title = $el.find(".name").text(),
+                var title = $el.data("id"),
                     item = data[title].items,
                     table = "";
                 item = sort('date', item);
