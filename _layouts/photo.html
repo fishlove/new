@@ -36,7 +36,7 @@ layout: default
             {% if collection.sell_posters %}
             <form class="row">
               <div class="form-group col-sm-5">
-                <div class="item_price">&pound;<span>19.95</span></div>
+                <div class="item_price">&pound;<span>24.95</span></div>
                 <span class="poster-size">297mm x 420mm</span>
               </div>
               <div class="col-sm-7">
@@ -44,7 +44,7 @@ layout: default
                   <div class="input-group">
                    <label for="size" class="input-group-addon"> Size </label>
                     <select name="size" class="item_size form-control" onchange="">
-                      <option value="A3 (297mm x 420mm)" data-price="19.95" data-size="297mm x 420mm">A3</option>
+                      <option value="A3 (297mm x 420mm)" data-price="24.95" data-size="297mm x 420mm">A3</option>
                       <option value="A2 (420mm x 594mm)" data-price="39.95" data-size="420mm x 594mm">A2</option>
                     </select>
                   </div>
@@ -54,7 +54,7 @@ layout: default
                     <label for="quantity" class="input-group-addon"> Qty </label>
                     <select name="quantity" class="item_quantity form-control">
                       {% for i in (1..10) %}
-                      <option value="{{i}}">{{i}}</option>  
+                      <option value="{{i}}">{{i}}</option>
                       {% endfor %}
                     </select>
                   </div>
@@ -64,7 +64,7 @@ layout: default
                 {% for param in page.params %}
                 <div class="checkbox">
                   <label>
-                    <input class="item_param" type="checkbox" data-modifier="{{ param.modifier }}" data-price="{{ param.price }}" value="{{ param.param }}"> 
+                    <input class="item_param" type="checkbox" data-modifier="{{ param.modifier }}" data-price="{{ param.price }}" value="{{ param.param }}">
                     <span>{{ param.param }}</span> ({{ param.modifier }} &pound;{{ param.price }})
                   </label>
                 </div>
