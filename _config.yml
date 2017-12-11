@@ -101,7 +101,7 @@ profiles:
     facebook: 'https://www.facebook.com/fishlovecampaign'
     twitter: 'https://twitter.com/fishlove2020'
     youtube: 'https://www.youtube.com/channel/UCGuiPbtRfEYB276cNIqdHUw'
-    linkedin: www.linkedin.com/in/nicholas-rohl-moshimo
+    linkedin: 'https://www.linkedin.com/in/nicholas-rohl-moshimo/'
     instagram: 'https://www.instagram.com/fishlovecampaign/'
 exclude:
     - vendor
