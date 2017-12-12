@@ -12,7 +12,8 @@
   tumblr #35465c,
   buffer #333333,
   vk #45668e,
-  youtube #e52d27;
+  youtube #e52d27,
+  instagram #405de6;
 
 .btn-template(@name, @color) {
     &.btn-@{name}, .btn-@{name} [class^="don-ico-"], .btn-@{name} [class*=' don-ico-'] {
@@ -55,7 +56,7 @@
   tumblr "e608",
   buffer "e609",
   vk "e60a";
-  
+
 .ico-template(@name, @code) {
     &.ico-@{name} {
     *zoom: "expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x@{code};')";
@@ -78,13 +79,13 @@
     &, & > div{
         display: inline-block;
     }
-    
+
     a {
         position: relative;
     }
     a .don-count {
         height: 2em;
-        line-height: 2em; 
+        line-height: 2em;
         border:1px solid #ccc;
         background:#fff;
         color: #333;
