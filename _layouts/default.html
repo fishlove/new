@@ -94,19 +94,19 @@
     </div>
   </div>
   {{content}}
-  
+
 {% if page.testimonial_text and page.slug != 'index' %}
 <div class="section section-lg bg-red text-center">
   <div class="container">
     <p>&ldquo;{{ page.testimonial_text }}&rdquo;</p>
     <small>
-      <b>{{ page.testimonial_person }}</b> 
+      <b>{{ page.testimonial_person }}</b>
       <cite>{{ page.testimonial_role }}</cite>
     </small>
   </div>
 </div>
 {% endif %}
-  
+
   <footer class="footer">
     <div class="container">
       <div class="row">
@@ -135,7 +135,7 @@
         <div class="col-sm-3">
           <h4>Produced by </h4>
           <p>
-            <a href="http://moshimo.co.uk/">
+            <a href="https://moshimo.co.uk/">
               {% image moshimo_logo.png magick:resize:220 alt:"Moshimo" class:"img-responsive" %}
             </a>
           </p>
