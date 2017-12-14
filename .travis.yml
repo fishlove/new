@@ -2,17 +2,17 @@ language: ruby
 rvm:
 - 2.2
 
-cache: 
+cache:
 - bundler
 - directories:
   - .asset-cache
-  
+
 script:
 - #bundle exec travis-dedup $REPO $TRAVIS_TOKEN --branches
 - set -e
 - bundle exec jekyll build
 - set +e
-- bundle exec htmlproofer ./_site --allow-hash-href --check-html --http-status-ignore 0
+- bundle exec htmlproofer ./_site --allow-hash-href --check-html --http-status-ignore 0 --http-status-ignore 999
 - cd _site
 - touch .nojekyll
 - git init
@@ -24,11 +24,11 @@ script:
 
 git:
   depth: 10
-  
+
 notifications:
   email: webmaster@fishlove.co.uk
   slack: $SLACK
-  
+
 env:
   global:
   - REPO=fishlove/fishlove.github.io
