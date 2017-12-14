@@ -5,7 +5,7 @@
             <field name="heading" type="text" label="Heading" filter="string" class="form-control" />
             <field name="sponsors" type="multiform" label="Sponsors" filter="array">
                 <field name="name" type="text" label="Name" filter="string" class="form-control" />
-                <field name="logo" type="media" label="Logo" filter="string" class="form-control" directory="images/partners" />
+                <field name="logo" type="media" label="Logo" filter="string" class="form-control" directory="_media/partners" />
                 <field name="url" type="text" label="Website" filter="url" class="form-control" />
             </field>
         </fieldset>
