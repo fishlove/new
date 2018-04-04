@@ -13,7 +13,7 @@ layout: default
     <div class="section-lead">
       <p>The fish we used in the portraits along with the sustainability ratings provided by the marine conservation society.</p>
     </div>
-    {% assign fish = (site.fish | where: 'published', 1 | sort: 'order') %}
+    {% assign fish = site.fish | where: 'published', 1 | sort: 'order' %}
     <div class="row">
     {% for item in fish %}
       <div class="col-sm-6 col-lg-4">

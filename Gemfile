@@ -8,7 +8,7 @@ gem 'therubyracer'
 gem 'uglifier'
 gem 'yui-compressor'
 group :jekyll_plugins do
-  gem 'jekyll-assets'
+  gem 'jekyll-assets', '~> 2'
   gem 'autoprefixer-rails'
 end
 

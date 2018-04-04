@@ -9,7 +9,7 @@ layout: default
     </article>
     <hr>
     <div class="section-content row text-center">
-      {% assign subpages = (site.pages | where: 'published', 1 | where: 'parent', page.slug | sort: 'order') %}
+      {% assign subpages = site.pages | where: 'published', 1 | where: 'parent', page.slug | sort: 'order' %}
       {% for item in subpages %}
       <div class="col-sm-4">
         <span class="fa fa-{{ item.icon }} fa-5x"></span>
@@ -41,7 +41,7 @@ layout: default
       {% endfor %}
     </ul>
     <div class="section-content">{{page.partners_outro}}</div>
-    
+
   </div>
 </div>
 

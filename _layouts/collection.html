@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign collection = (site.photos | where: 'gallery', page.slug | where: 'published', 1 | sort: 'order') %}
+{% assign collection = site.photos | where: 'gallery', page.slug | where: 'published', 1 | sort: 'order' %}
 <div class="section section-page bg-dark" id="content">
   <div class="container">
     <h1>
@@ -24,11 +24,11 @@ layout: default
     <ul class="gallery collection">
       {% for item in collection %}
       {% capture image %}{% assign img = item.image | remove_first: '_media/' | img: "magick:resize:x500" | split: '"' %}{{ img[1] }}{% endcapture %}
-      {% assign img = (item.image | remove_first: '_media/') %}
+      {% assign img = item.image | remove_first: '_media/' %}
       <li class="item {% if assets[img].width >= assets[img].height %}w2{% endif %}">
       <a href="{{ site.url }}{{ item.url }}" style="background-image:url({{ image }})">
         <h4 class="item-title">
-          {% assign fish = (site.fish | where: 'slug', item.fish | first) %}
+          {% assign fish = site.fish | where: 'slug', item.fish | first %}
           <span>{{ item.title | markdownify | strip_html }}<br><small>{{ fish.title }}</small></span>
         </h4>
       </a>

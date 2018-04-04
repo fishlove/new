@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign slides = (site.galleries | where: 'published', 1 | sort: 'order') %}
+{% assign slides = site.galleries | where: 'published', 1 | sort: 'order' %}
 {% include modules/slideshow.html category=slides %}
 <div class="section well text-justify-center" id="content">
   <div class="container">
@@ -36,13 +36,13 @@ layout: default
   </div>
 </div>
 
-  
+
 {% if page.testimonial_text %}
 <div class="section section-lg bg-red text-center">
   <div class="container">
     <p>&ldquo;{{ page.testimonial_text }}&rdquo;</p>
     <small>
-      <b>{{ page.testimonial_person }}</b> 
+      <b>{{ page.testimonial_person }}</b>
       <cite>{{ page.testimonial_role }}</cite>
     </small>
   </div>
@@ -83,7 +83,7 @@ layout: default
       <script type="text/template" id="donshare">
         <a href="{url}" target="_blank" title="{description}" class="btn btn-{id}"><i class="ico-{id} fa fa-fw fa-2x"></i></span><span class="don-count"></span></a>
       </script>
-      <script type="text/javascript"> 
+      <script type="text/javascript">
         (function() {
           var dr = document.createElement('script');
           dr.type = 'text/javascript'; dr.async = true;
@@ -112,10 +112,10 @@ layout: default
         <div class="panel panel-default" style="height:100%;">
           <div class="panel-heading"><h3 class="panel-title"><span class="fa fa-fw fa-twitter"></span> Follow</h3></div>
           <div class="panel-body">
-            <a class="twitter-timeline" 
+            <a class="twitter-timeline"
               data-chrome="noborders transparent"
               data-tweet-limit="1"
-              href="{{ site.profiles.twitter }}" 
+              href="{{ site.profiles.twitter }}"
               data-widget-id="570391054583873536">Tweets by @{{ site.profiles.twitter | replace: '@', '' | split: '/' | last }}</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </div>

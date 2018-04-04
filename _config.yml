@@ -74,7 +74,7 @@ advanced:
     lg_h: 0
     xl_w: 1920
     xl_h: 0
-gems:
+plugins:
     - autoprefixer-rails
     - jekyll-assets
     - jekyll-sitemap

@@ -1,7 +1,7 @@
 ---
 ---
-{% assign press = (site.press | where: 'published', 1 | sort: 'order' | group_by: 'title') %}
-{ 
+{% assign press = site.press | where: 'published', 1 | sort: 'order' | group_by: 'title' %}
+{
     {% for p in press %}
     {% if p.items[0].image %}
     {% capture image %}{% assign img = p.items[0].image | remove_first: '_media/' | img: "magick:resize:300" | split: '"' %}{{ img[1] }}{% endcapture %}
@@ -12,9 +12,9 @@
         "image": "{{ image | xml_escape }}",
         "items":  [
             {% for item in p.items %}
-            { 
+            {
               "date": "{{ item.date | date: '%Y-%m-%d' }}"
-              
+
               {% assign local = item.link | slice: 0, 6 %}
               {% if local == '_media' %},
                   "url": "{{ item.link | remove_first: '_media/' | asset_path | prepend: site.url | xml_escape }}"
@@ -30,7 +30,7 @@
                   {% endif %}
                 {% endif %}
               {% endif %}
-              
+
             }
             {% if forloop.last != true %},{% endif %}
             {% endfor %}

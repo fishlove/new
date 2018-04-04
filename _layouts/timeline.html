@@ -2,17 +2,17 @@
 layout: default
 ---
 <div class="section section-page bg-dark" id="content">
-  <div class="container text-center"> 
+  <div class="container text-center">
     <h1>{{ page.title }}</h1>
     <div class="section-lead">
       {{ content }}
     </div>
   </div>
-  <div class="container"> 
-    {% assign events = (site.events | where: 'published', 1 | sort: 'date') %}
+  <div class="container">
+    {% assign events = site.events | where: 'published', 1 | sort: 'date' %}
     <div class="timeline">
     {% for item in events reversed %}
-      {% assign currentyear = (item.date | date: "%Y") %}
+      {% assign currentyear = item.date | date: "%Y" %}
       <div class="timeline-block" id="{{ item.slug }}">
         {% if currentyear != year %}
           {% assign year = currentyear %}
@@ -37,8 +37,8 @@ layout: default
               {% assign release = press_releases[1] %}
             {% else %}
               {% assign release = press_releases %}
-            {% endif %}  
-            <a target="_blank" download href="{{ release.file | remove_first: '_media/' | asset_path }}" class="btn btn-default">{{ release.name }}</a> 
+            {% endif %}
+            <a target="_blank" download href="{{ release.file | remove_first: '_media/' | asset_path }}" class="btn btn-default">{{ release.name }}</a>
             {% endfor %}
             {% endif %}
           </div>

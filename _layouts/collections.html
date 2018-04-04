@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign slides = (site.galleries | where: 'published', 1 | sort: 'order') %}
+{% assign slides = site.galleries | where: 'published', 1 | sort: 'order' %}
 <div class="fh-sm" id="content">
   <div class="donslide fh-sm">
     {% for item in slides %}
@@ -26,7 +26,7 @@ layout: default
     <h1 class="section-header">Fishlove {{ page.title }}</h1>
     <div class="row">
       {% for item in slides %}
-      {% assign items = (site.photos | where: 'published', 1 | where: 'gallery', item.slug) %}
+      {% assign items = site.photos | where: 'published', 1 | where: 'gallery', item.slug %}
       <div class="col-sm-1" style="min-width: {{ 100 | divided_by: slides.size }}%;">
         <h3>{{ item.title | markdownify | strip_html }}</h3>
         <p><a class="btn btn-sm btn-primary" data-toggle="tooltip" href="{{ site.url }}{{ item.url }}" title="View all {{ item.title }} portraits">View all</a></p>

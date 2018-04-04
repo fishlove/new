@@ -9,7 +9,7 @@ layout: default
         <label class="h4" for="filter">Filter </label>
         <select name="filter" id="filter" class="form-control">
           <option value="">All countries</option>
-          {% assign countries = (site.press | where: 'published', 1 | group_by: 'country') | sort: 'name' %}
+          {% assign countries = site.press | where: 'published', 1 | group_by: 'country' | sort: 'name' %}
           {% for country in countries %}
           {% assign cc = country.name | size %}
           {% if cc == 2 %}
@@ -44,10 +44,10 @@ layout: default
   </div>
   <div class="container rel">
     <ul class="gallery gallery-sm filter-container">
-      {% assign press = (site.press | where: 'published', 1 | sort: 'order' | group_by: 'title') %}
+      {% assign press = site.press | where: 'published', 1 | sort: 'order' | group_by: 'title' %}
       {% assign limit = 15 %}
       {% for p in press limit: limit %}
-      {% assign item = (p.items | first) %}
+      {% assign item = p.items | first %}
       {% if item.image %}{% capture image %}{% assign img = item.image | remove_first: '_media/' | img: "magick:resize:300" | split: '"' %}{{ img[1] }}{% endcapture %}{% endif %}
       <li class="filter-item item" data-id="{{ item.title }}" data-date="{{ item.date }}" data-country="{{ item.country }}" data-order="{{ item.order }}">
         <a href="#" class="press_item panel-body">

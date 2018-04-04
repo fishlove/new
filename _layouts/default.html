@@ -69,7 +69,7 @@
         {% assign pages = site.pages | where: 'published', 1 | sort: 'order' %}
         {% for item in pages %}
           {% unless item.parent %}
-          {% assign submenu = (site.pages | where: 'published', 1 | where: 'parent', item.slug | sort: 'order') %}
+          {% assign submenu = site.pages | where: 'published', 1 | where: 'parent', item.slug | sort: 'order' %}
           <li {% if item.slug == page.slug or page.collection == item.slug or page.app == item.slug or page.parent == item.slug %}class="active"{% endif %}>
             <a href="{{ item.url | remove: 'index.html' | prepend: site.url }}">
               {% if item.slug == 'index' %}Home{% else %}{{ item.title }}{% endif %}

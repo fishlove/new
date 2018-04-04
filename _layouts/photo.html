@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-{% assign fish = (site.fish | where: 'slug', page.fish | first) %}
+{% assign fish = site.fish | where: 'slug', page.fish | first %}
 <div class="section section-page bg-dark fh-sm" id="content">
   <div class="container-fluid fh-sm">
     <div class="row fh-sm">
@@ -32,7 +32,7 @@ layout: default
             <h3 class="panel-title">Order Posters</h3>
           </div>
           <div class="panel-body">
-            {% assign collection = (site.galleries | where: 'slug', page.gallery | first) %}
+            {% assign collection = site.galleries | where: 'slug', page.gallery | first %}
             {% if collection.sell_posters %}
             <form class="row">
               <div class="form-group col-sm-5">
